@@ -8,12 +8,10 @@ import java.sql.SQLException;
 
 public class MemberDAO {
 
-private Connection conn = null;
+	private Connection conn = null;
 	
-
 	private PreparedStatement psmt = null;
 	
-
 	private ResultSet rs = null;
 
 
@@ -75,7 +73,7 @@ private Connection conn = null;
 			getConn();
 
 
-			String sql = "SELECT ID, PW FROM MEMBER WHERE ID = ? AND PW =?";
+			String sql = "SELECT ID, PW FROM pokemonmember WHERE ID = ? AND PW =?";
 
 			psmt = conn.prepareStatement(sql);
 
@@ -115,7 +113,7 @@ private Connection conn = null;
 		try {
 			getConn();
 
-			String sql = "INSERT INTO MEMBER VALUES(?, ?)";
+			String sql = "INSERT INTO pokeMEMBER VALUES(?, ?)";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, dto.getId());
 			psmt.setString(2, dto.getPw());
@@ -141,7 +139,7 @@ private Connection conn = null;
 		try {
 			getConn();
 			
-			String sql = "select * from member where id = ?";
+			String sql = "select * from pokemember where id = ?";
 			
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, id);
