@@ -75,7 +75,7 @@ private Connection conn = null;
 			getConn();
 
 
-			String sql = "SELECT * FROM MEMBER WHERE ID = ? AND PW =?";
+			String sql = "SELECT ID, PW FROM MEMBER WHERE ID = ? AND PW =?";
 
 			psmt = conn.prepareStatement(sql);
 
@@ -107,6 +107,62 @@ private Connection conn = null;
 		return result;
 
 	}
+	// =====================================================로그인
+	
+	
+	public int join(MemberDTO dto) {
+		int cnt = 0;
+		try {
+			getConn();
+
+			String sql = "INSERT INTO MEMBER VALUES(?, ?)";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, dto.getId());
+			psmt.setString(2, dto.getPw());
+
+			cnt = psmt.executeUpdate(); 
+
+			if (cnt > 0) {
+				System.out.println("회원가입 성공");
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+
+		return cnt;
+	}
+	// ===========================================회원가입
+	
+	public int idCheck(String id) {
+		
+		try {
+			getConn();
+			
+			String sql = "select * from member where id = ?";
+			
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, id);
+			
+			rs = psmt.executeQuery();
+			
+			if(rs.next()) {
+				return 1; // 중복된 id가 있다는 의미
+			}
+			
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return 0;// 중복되지 않은 id
+	}
+	// ========================== 회원 중복id 확인
+	
 	
 	
 	

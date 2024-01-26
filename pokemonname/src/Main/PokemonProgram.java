@@ -11,7 +11,10 @@ import Model.PokemonDTO;
 public class PokemonProgram {
 
 	public static void main(String[] args) {
-Scanner sc = new Scanner(System.in);
+		Scanner sc = new Scanner(System.in);
+		
+		MemberDAO mdao = new MemberDAO(); // mdao 초기화 - 명택
+		
 		
 		while(true) {
 			System.out.print("포켓몬 너의 이름은");
@@ -22,7 +25,7 @@ Scanner sc = new Scanner(System.in);
 				System.out.print("가입할 아이디 입력 : ");
 				String joinId = sc.next();
 				
-				int result = pdao.idCheck(joinId);
+				int result = mdao.idCheck(joinId);
 				if(result==0) {
 					System.out.println("사용가능한 id입니다.");
 				}else continue;
@@ -30,9 +33,9 @@ Scanner sc = new Scanner(System.in);
 				System.out.print("가입할 비밀번호 입력 : ");
 				String joinPw = sc.next();
 				
-				PokemonDTO dto = new PokemonDTO();
-				dto.setID(joinId);
-				dto.setPW(joinPw);
+				MemberDTO dto = new MemberDTO();
+				dto.setId(joinId);
+				dto.setPw(joinPw);
 				
 			}else if(choice==2) {
 				System.out.print("아이디 입력 : ");
@@ -40,11 +43,11 @@ Scanner sc = new Scanner(System.in);
 				System.out.print("비밀번호 입력 : ");
 				String pw = sc.next();
 				
-				PokemonDTO dto = new PokemonDTO();
-				dto.setID(id);
-				dto.setPW(pw);
+				MemberDTO dto = new MemberDTO();
+				dto.setId(id);
+				dto.setPw(pw);
 				
-				PokemonDTO result = pdao.login(dto);
+				MemberDTO result = mdao.login(dto);
 				
 				//=======플레이
 				if(result != null) {
@@ -55,7 +58,7 @@ Scanner sc = new Scanner(System.in);
 						
 						
 					}else if(menu==2) {
-						ArrayList<PokemonDTO> list=pdao.rank(null);
+						ArrayList<PokemonDTO> list=mdao.rank(null);
 						System.out.println("순위\t아이디\t점수");
 						for(int i = 0;i<list.size();i++) {
 							
@@ -64,7 +67,7 @@ Scanner sc = new Scanner(System.in);
 					    }
 					
 					}else if(menu==3) {
-						ArrayList<PokemonDTO> list = pdao.history(result.getID());
+						ArrayList<PokemonDTO> list = mdao.history(result.getID());
 						for(int i=0;i<list.size();i++) {
 							System.out.println(list.get(i).getscore());
 						}
