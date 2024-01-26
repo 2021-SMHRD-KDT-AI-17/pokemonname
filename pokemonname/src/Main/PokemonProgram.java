@@ -27,6 +27,7 @@ public class PokemonProgram {
 		while (true) {
 			
 			prol.stop();
+			System.out.println();
 			System.out.println("포켓몬 너의 이름은");
 			System.out.print("[1]회원가입 [2]로그인 [3]종료 >>");
 			int choice = sc.nextInt();
