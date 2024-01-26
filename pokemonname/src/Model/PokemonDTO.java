@@ -5,6 +5,8 @@ public class PokemonDTO {
 	private String name;
 	
 	private int num;
+	
+	private String hint;
 
 	public String getName() {
 		return name;
@@ -22,6 +24,15 @@ public class PokemonDTO {
 		this.num = num;
 	}
 	
+	
+	public String getHint() {
+		return hint;
+	}
+
+	public void setHint(String hint) {
+		this.hint = hint;
+	}
+
 	public PokemonDTO() {
 		
 	}

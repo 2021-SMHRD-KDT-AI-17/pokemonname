@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Random;
 
 public class PokemonDAO {
 
@@ -85,12 +86,43 @@ public class PokemonDAO {
 		// 포켓몬 그림 출력
 		public void ENprint() {
 			
+
 		}
 		
 		// Easy/Normal 힌트 시 초성 출력
-		public void ENHint() {
-			
-		}
+//		public PokemonDTO ENHint(PokemonDTO dto) {
+//			
+//			PokemonDTO result = null;
+//			try {
+//				getConn();
+//				
+//				String sql = "select hint from pokemon where num = ?";
+//				
+//				psmt = conn.prepareStatement(sql);
+//				psmt.setString(1, num);
+//				
+//				rs = psmt.executeQuery();
+//				
+//				if (rs.next()) {
+//					result = new PokemonDTO();
+//					String getNum = rs.getString(1); 
+//
+//					result.setHint(getHint);
+//
+//					System.out.println(getHint);
+//
+//				}
+//
+//			} catch (SQLException e) {
+//				e.printStackTrace();
+//			} finally {
+//				close();
+//			}
+//
+//			return result;
+//		}
+		
+
 		
 		
 		// Hard 그림 절반만 출력
