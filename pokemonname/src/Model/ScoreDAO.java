@@ -5,14 +5,15 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
-public class PokemonDAO {
+public class ScoreDAO {
 
-	
 	private Connection conn = null;
 	private PreparedStatement psmt = null;
 	private ResultSet rs = null;
-
+	
+	
 	// 공통적으로 작성하고 있는 코드를 메서드로 분리
 	public void getConn() {
 		try {
@@ -69,39 +70,103 @@ public class PokemonDAO {
 		// =========== DB 연결 종료
 
 		// --------------------------------------------------------------------------------------------------------------
-		
-		
-		
-		
-		// 프롤로그
-		public void prolog() {
-			
-			
-			
+	
+	public int PlayScore(ScoreDTO dto) {
+
+		int cnt = 0;
+
+		try {
+			getConn();
+
+			String sql = "INSERT INTO score(ID,SCORE) VALUES(?,?)";
+
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, dto.getId());
+			psmt.setInt(2, dto.getScore());
+
+			cnt = psmt.executeUpdate(); // DML에서 사용함 INSERT, UPDATE, DELETE
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
 		}
-		
-		
-		
-		// 포켓몬 그림 출력
-		public void ENprint() {
-			
+
+		return cnt;
+	
+	// 기록 저장
+	}
+	
+	public ArrayList<ScoreDTO> rank() {
+
+		// DB에서 조회된 정보를 저장할 임시 객체
+		ArrayList<ScoreDTO> list = new ArrayList<ScoreDTO>();
+
+		try {
+			getConn();
+
+//			String sql = "select id, score from (select id, MAX(score) as score "
+//					+ "from play group by id order by score desc) where rownum <= 10";
+
+			String sql = "select id, max(score) as score\r\n" + "from score\r\n" + "group by id\r\n"
+					+ "order by score desc";
+
+			psmt = conn.prepareStatement(sql);
+
+			rs = psmt.executeQuery();
+
+			while (rs.next()) {
+
+				ScoreDTO dto = new ScoreDTO();
+				dto.setId(rs.getString(1));
+				dto.setScore(rs.getInt(2));
+
+				list.add(dto);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
 		}
-		
-		// Easy/Normal 힌트 시 초성 출력
-		public void ENHint() {
-			
+
+		return list;
+	// 랭크
+	
+	}
+	public ArrayList<ScoreDTO> history(String id) {
+
+		ArrayList<ScoreDTO> list = new ArrayList<ScoreDTO>();
+
+		try {
+			getConn();
+
+			String sql = "select score from score where id = ? and rownum <= 5 order by indate desc";
+
+			psmt = conn.prepareStatement(sql);
+
+			psmt.setString(1, id);
+
+			rs = psmt.executeQuery();
+
+			while (rs.next()) {
+
+				ScoreDTO dto = new ScoreDTO();
+				dto.setId(rs.getString(1));
+				dto.setScore(rs.getInt(2));
+				dto.setIndate(rs.getString(3));
+
+				list.add(dto);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
 		}
-		
-		
-		// Hard 그림 절반만 출력
-		public void Hprint() {
-			
-		}
-		
-		// Hard 힌트 시 그림 전체 출력
-		public void HHint() {
-			
-		}
-		
+
+		return list;
+	}
+	
 	
 }
