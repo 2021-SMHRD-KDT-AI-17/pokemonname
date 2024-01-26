@@ -9,6 +9,7 @@ import Model.PokemonDAO;
 import Model.PokemonDTO;
 import Model.ScoreDAO;
 import Model.ScoreDTO;
+import Model.Prologue;
 
 public class PokemonProgram {
 
@@ -17,9 +18,17 @@ public class PokemonProgram {
 
 		MemberDAO mdao = new MemberDAO(); // mdao 초기화 - 명택
 		ScoreDAO sdao = new ScoreDAO(); // sdao 초기화 - 현우
-
+		
+		Prologue prol = new Prologue();
+		prol.start();
+		
+		String skip = sc.next();
+		
 		while (true) {
-			System.out.print("포켓몬 너의 이름은");
+			
+			prol.stop();
+			System.out.println();
+			System.out.println("포켓몬 너의 이름은");
 			System.out.print("[1]회원가입 [2]로그인 [3]종료 >>");
 			int choice = sc.nextInt();
 
