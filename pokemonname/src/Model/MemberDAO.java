@@ -73,7 +73,7 @@ public class MemberDAO {
 			getConn();
 
 
-			String sql = "SELECT ID, PW FROM pokemonmember WHERE ID = ? AND PW =?";
+			String sql = "SELECT * FROM POKEMEMBER WHERE ID = ? AND PW =?";
 
 			psmt = conn.prepareStatement(sql);
 
@@ -113,7 +113,7 @@ public class MemberDAO {
 		try {
 			getConn();
 
-			String sql = "INSERT INTO pokeMEMBER VALUES(?, ?)";
+			String sql = "INSERT INTO POKEMEMBER VALUES(?, ?)";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, dto.getId());
 			psmt.setString(2, dto.getPw());
