@@ -378,7 +378,9 @@ public class PokemonProgram {
 						int cnt = sdao.PlayScore(sdto);{
 							if(cnt>0) {
 								System.out.println("총 "+sum+"점이야!");
+
 							continue;
+
 							}
 						}
 						
