@@ -13,7 +13,7 @@ import Model.ScoreDTO;
 import Model.Prologue;
 import Model.PokemonBook;
 import Model.PokemonBookAns;
-import Model.TimeLImitQuiz;
+import Model.PokemonBookHint;
 
 public class PokemonProgram {
 
@@ -78,13 +78,132 @@ public class PokemonProgram {
 					int menu = sc.nextInt();
 					if(menu==1) {
 						int sum = 0;
+						int hint = 5;
+						int pass = 1;
 						
 						PokemonBook pb = new PokemonBook();
 						String [] pb1 = PokemonBook.book();
 						Random rd = new Random();
 						int i=0;
 						
+						System.out.println("난이도를 선택하라고! 난이도에 따라 점수가 다를 거야!!");
+						System.out.println("[1]하 [2]중 [3]상");
+						
+						int level = sc.nextInt();
+						
+						if(level == 1) {
 						while(i<10) {
+								
+						int quenum = rd.nextInt(22);
+						String question = pb1[quenum];
+						System.out.println(question);
+						
+						
+						System.out.println("내 이름이 뭐게!!!");
+	
+						System.out.println("[1]정답입력 [2]힌트 [3]패스");
+						int achoice = sc.nextInt();
+						PokemonBookAns pba = new PokemonBookAns();
+						String [] pbans = PokemonBookAns.ans();
+						String answer = pbans[quenum];
+						
+						
+						if(achoice == 1) {
+					
+						String userans = sc.next();
+							if(userans.equals(answer))
+							{
+								System.out.println("정답이야!");
+								sum=sum+10;
+							}
+							else
+							{
+								System.out.println("그것도 기억 못하다니!!");
+							}
+							i++;
+						}
+						
+						else if(achoice == 2)
+						{
+							
+							 PokemonBookHint phb = new PokemonBookHint();
+							 String [] pbhint = PokemonBookHint.hint();
+							 System.out.println("내 이름은 "+pbhint[quenum]+"이니까 잘 맞춰보라고!");
+							 hint --;
+							 
+								String userans = sc.next();
+								if(userans.equals(answer))
+								{
+									System.out.println("정답이야!");
+									sum=sum+5;
+								}
+								else
+								{
+									System.out.println("그것도 기억 못하다니!!");
+								}
+								i++;
+							 
+							 if(hint <= 0)
+							 {
+								 System.out.println("힌트 기회를 소진했어!");
+							 }
+							 
+						}
+						else 
+						{
+							
+							pass --;
+							if(pass < 0)
+							{
+								System.out.println("패스 기회를 소진했어!");
+							}
+							
+						}
+						
+						
+						if(i==10)
+							{
+								System.out.println(sum);
+							}
+						}
+					}
+						
+						
+						
+						else if(level == 2) {
+						while(i<10) {
+								
+						int quenum = rd.nextInt(21)+23;
+						String question = pb1[quenum];
+						System.out.println(question);
+						System.out.println("내 이름이 뭐게!!!");
+						
+						PokemonBookAns pba = new PokemonBookAns();
+						String [] pbans = PokemonBookAns.ans();
+						String answer = pbans[quenum];
+						String userans = sc.next();
+						if(userans.equals(answer))
+						{
+							System.out.println("정답이야!");
+							sum=sum+20;
+						}
+						else
+						{
+							System.out.println("그것도 기억 못하다니!!");
+						}
+						i++;
+						}
+						
+						if(i==10)
+						{
+							System.out.println(sum);
+						}
+						}
+						
+						
+						else {
+						while(i<10) {
+								
 						int quenum = rd.nextInt(pb1.length);
 						String question = pb1[quenum];
 						System.out.println(question);
@@ -97,7 +216,7 @@ public class PokemonProgram {
 						if(userans.equals(answer))
 						{
 							System.out.println("정답이야!");
-							sum++;
+							sum=sum+30;
 						}
 						else
 						{
@@ -109,6 +228,7 @@ public class PokemonProgram {
 						if(i==10)
 						{
 							System.out.println(sum);
+						}
 						}
 
 						
