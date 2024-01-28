@@ -138,7 +138,7 @@ public class PokemonProgram {
 						int quenum;
 						
 
-						while(i<=7) {
+						while(i<=6) {
 						
 						if(level == 1) { 
 							quenum = rd.nextInt(22);
@@ -378,7 +378,7 @@ public class PokemonProgram {
 						int cnt = sdao.PlayScore(sdto);{
 							if(cnt>0) {
 								System.out.println("총 "+sum+"점이야!");
-								break;
+								continue;
 							}
 						}
 						
