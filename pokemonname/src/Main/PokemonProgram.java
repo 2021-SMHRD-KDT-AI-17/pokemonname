@@ -139,7 +139,7 @@ public class PokemonProgram {
 						
 						int quenum;
 						
-						while(i<=10) {
+						while(i<=7) {
 						
 						if(level == 1) { 
 							quenum = rd.nextInt(22);
