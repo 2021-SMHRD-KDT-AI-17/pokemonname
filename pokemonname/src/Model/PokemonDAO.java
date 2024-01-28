@@ -72,14 +72,7 @@ public class PokemonDAO {
 		// --------------------------------------------------------------------------------------------------------------
 		
 		
-		
-		
-		// 프롤로그
-		public void prolog() {
-			
-			
-			
-		}
+
 		
 		
 		
@@ -89,40 +82,6 @@ public class PokemonDAO {
 
 		}
 		
-		// Easy/Normal 힌트 시 초성 출력
-//		public PokemonDTO ENHint(PokemonDTO dto) {
-//			
-//			PokemonDTO result = null;
-//			try {
-//				getConn();
-//				
-//				String sql = "select hint from pokemon where num = ?";
-//				
-//				psmt = conn.prepareStatement(sql);
-//				psmt.setString(1, num);
-//				
-//				rs = psmt.executeQuery();
-//				
-//				if (rs.next()) {
-//					result = new PokemonDTO();
-//					String getNum = rs.getString(1); 
-//
-//					result.setHint(getHint);
-//
-//					System.out.println(getHint);
-//
-//				}
-//
-//			} catch (SQLException e) {
-//				e.printStackTrace();
-//			} finally {
-//				close();
-//			}
-//
-//			return result;
-//		}
-		
-
 		
 		
 		// Hard 그림 절반만 출력

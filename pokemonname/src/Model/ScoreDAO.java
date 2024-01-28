@@ -94,8 +94,11 @@ public class ScoreDAO {
 
 		return cnt;
 	
-	// 기록 저장
+
 	}
+	// =============================================기록 저장
+	
+	
 	
 	public ArrayList<ScoreDTO> rank() {
 
@@ -105,11 +108,11 @@ public class ScoreDAO {
 		try {
 			getConn();
 
-//			String sql = "select id, score from (select id, MAX(score) as score "
-//					+ "from play group by id order by score desc) where rownum <= 10";
+			String sql = "select id, score from (select id, MAX(score) as score "
+					+ "from play group by id order by score desc) where rownum <= 10";
 
-			String sql = "select id, max(score) as score\r\n" + "from score\r\n" + "group by id\r\n"
-					+ "order by score desc";
+//			String sql = "select id, max(score) as score\r\n" + "from score\r\n" + "group by id\r\n"
+//					+ "order by score desc";
 
 			psmt = conn.prepareStatement(sql);
 
@@ -131,9 +134,12 @@ public class ScoreDAO {
 		}
 
 		return list;
-	// 랭크
+
 	
 	}
+	// ======================================= 상위 10명 랭크보기
+	
+	
 	public ArrayList<ScoreDTO> history(String id) {
 
 		ArrayList<ScoreDTO> list = new ArrayList<ScoreDTO>();
@@ -142,7 +148,9 @@ public class ScoreDAO {
 			getConn();
 
 			String sql = "select score from score where id = ? and rownum <= 5 order by indate desc";
-
+				// 기록을 일단 최근 5개만 보게 설정할까요??
+			
+			
 			psmt = conn.prepareStatement(sql);
 
 			psmt.setString(1, id);
@@ -167,6 +175,7 @@ public class ScoreDAO {
 
 		return list;
 	}
+	// =========================== 플레이어의 최근 5개 기록 보기
 	
 	
 }
