@@ -91,10 +91,20 @@ public class PokemonProgram {
 						
 						int level = sc.nextInt();
 						
-						if(level == 1) {
-						while(i<10) {
-								
-						int quenum = rd.nextInt(22);
+						int quenum;
+						
+						if(level == 1) { 
+							quenum = rd.nextInt(22);
+						}
+						else if(level == 2)
+						{
+							quenum = rd.nextInt(21)+23;
+						}
+						else
+						{
+							quenum = rd.nextInt(24)+45;
+						}
+						
 						String question = pb1[quenum];
 						System.out.println(question);
 						
@@ -123,9 +133,8 @@ public class PokemonProgram {
 							i++;
 						}
 						
-						else if(achoice == 2)
+						else if(achoice == 2&&hint>0)
 						{
-							
 							 PokemonBookHint phb = new PokemonBookHint();
 							 String [] pbhint = PokemonBookHint.hint();
 							 System.out.println("내 이름은 "+pbhint[quenum]+"이니까 잘 맞춰보라고!");
@@ -141,98 +150,56 @@ public class PokemonProgram {
 								{
 									System.out.println("그것도 기억 못하다니!!");
 								}
-								i++;
-							 
-							 if(hint <= 0)
-							 {
-								 System.out.println("힌트 기회를 소진했어!");
-							 }
-							 
+								i++;	 
+							
+								
 						}
-						else 
+						else if(achoice == 3 && pass > 0)
 						{
-							
 							pass --;
-							if(pass < 0)
-							{
-								System.out.println("패스 기회를 소진했어!");
-							}
-							
 						}
+						
+						if(pass ==0)
+						{
+							System.out.println("패스 기회를 소진했어! 뭐든 기억해내라고!!");
+							String userans = sc.next();
+							if(userans.equals(answer))
+							{
+								System.out.println("정답이야!");
+								sum=sum+5;
+							}
+							else
+							{
+								System.out.println("그것도 기억 못하다니!!");
+							}
+							i++;
+						}
+						
+
+						 if(achoice == 2&&hint ==0)
+						 {
+							 System.out.println("힌트 기회를 소진했어!! 뭐든 생각해내라고!");
+								String userans = sc.next();
+								if(userans.equals(answer))
+								{
+									System.out.println("정답이야!");
+									sum=sum+5;
+								}
+								else
+								{
+									System.out.println("그것도 기억 못하다니!!");
+								}
+								i++;
+
+						 }
+
 						
 						
 						if(i==10)
 							{
 								System.out.println(sum);
 							}
-						}
-					}
-						
-						
-						
-						else if(level == 2) {
-						while(i<10) {
-								
-						int quenum = rd.nextInt(21)+23;
-						String question = pb1[quenum];
-						System.out.println(question);
-						System.out.println("내 이름이 뭐게!!!");
-						
-						PokemonBookAns pba = new PokemonBookAns();
-						String [] pbans = PokemonBookAns.ans();
-						String answer = pbans[quenum];
-						String userans = sc.next();
-						if(userans.equals(answer))
-						{
-							System.out.println("정답이야!");
-							sum=sum+20;
-						}
-						else
-						{
-							System.out.println("그것도 기억 못하다니!!");
-						}
-						i++;
-						}
-						
-						if(i==10)
-						{
-							System.out.println(sum);
-						}
-						}
-						
-						
-						else {
-						while(i<10) {
-								
-						int quenum = rd.nextInt(pb1.length);
-						String question = pb1[quenum];
-						System.out.println(question);
-						System.out.println("내 이름이 뭐게!!!");
-						
-						PokemonBookAns pba = new PokemonBookAns();
-						String [] pbans = PokemonBookAns.ans();
-						String answer = pbans[quenum];
-						String userans = sc.next();
-						if(userans.equals(answer))
-						{
-							System.out.println("정답이야!");
-							sum=sum+30;
-						}
-						else
-						{
-							System.out.println("그것도 기억 못하다니!!");
-						}
-						i++;
-						}
-						
-						if(i==10)
-						{
-							System.out.println(sum);
-						}
-						}
-
-						
-						
+				
 					}
 					else if(menu==2) {
 //						ArrayList<PokemonDTO> list=mdao.rank(null);
