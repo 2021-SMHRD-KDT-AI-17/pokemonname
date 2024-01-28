@@ -1,6 +1,7 @@
 package Main;
 
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 import Model.MemberDAO;
@@ -10,6 +11,9 @@ import Model.PokemonDTO;
 import Model.ScoreDAO;
 import Model.ScoreDTO;
 import Model.Prologue;
+import Model.PokemonBook;
+import Model.PokemonBookAns;
+import Model.TimeLImitQuiz;
 
 public class PokemonProgram {
 
@@ -29,6 +33,9 @@ public class PokemonProgram {
 			prol.stop();
 			System.out.println();
 			System.out.println("포켓몬 너의 이름은");
+			
+
+			
 			System.out.print("[1]회원가입 [2]로그인 [3]종료 >>");
 			int choice = sc.nextInt();
 
@@ -65,14 +72,49 @@ public class PokemonProgram {
 
 				
 				//=======플레이
-//				if(result != null) {
-//					System.out.println("===메뉴 선택===");
-//					System.out.println("[1]플레이 [2]랭킹보기 [3]나의 기록 확인 [4]로그아웃 >>");
-//					int menu = sc.nextInt();
-//					if(menu==1) {
-//						
-//						
-//					}else if(menu==2) {
+				if(result != null) {
+					System.out.println("===메뉴 선택===");
+					System.out.println("[1]플레이 [2]랭킹보기 [3]나의 기록 확인 [4]로그아웃 >>");
+					int menu = sc.nextInt();
+					if(menu==1) {
+						int sum = 0;
+						
+						PokemonBook pb = new PokemonBook();
+						String [] pb1 = PokemonBook.book();
+						Random rd = new Random();
+						int i=0;
+						
+						while(i<10) {
+						int quenum = rd.nextInt(pb1.length);
+						String question = pb1[quenum];
+						System.out.println(question);
+						System.out.println("내 이름이 뭐게!!!");
+						
+						PokemonBookAns pba = new PokemonBookAns();
+						String [] pbans = PokemonBookAns.ans();
+						String answer = pbans[quenum];
+						String userans = sc.next();
+						if(userans.equals(answer))
+						{
+							System.out.println("정답이야!");
+							sum++;
+						}
+						else
+						{
+							System.out.println("그것도 기억 못하다니!!");
+						}
+						i++;
+						}
+						
+						if(i==10)
+						{
+							System.out.println(sum);
+						}
+
+						
+						
+					}
+					else if(menu==2) {
 //						ArrayList<PokemonDTO> list=mdao.rank(null);
 //						System.out.println("순위\t아이디\t점수");
 //						for(int i = 0;i<list.size();i++) {
@@ -87,10 +129,10 @@ public class PokemonProgram {
 //							System.out.println(list.get(i).getscore());
 //						}
 //						
-//					}else break;
+					}else break;
 //						
 //					
-//				}
+				}
 				
 				
 				
