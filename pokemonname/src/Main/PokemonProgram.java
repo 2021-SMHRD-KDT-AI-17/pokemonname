@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 import Model.MemberDAO;
 import Model.MemberDTO;
+import Model.PokemonBook;
 import Model.PokemonDAO;
 import Model.PokemonDTO;
 import Model.ScoreDAO;
@@ -18,6 +19,7 @@ public class PokemonProgram {
 
 		MemberDAO mdao = new MemberDAO(); // mdao 초기화 - 명택
 		ScoreDAO sdao = new ScoreDAO(); // sdao 초기화 - 현우
+		PokemonBook book = new PokemonBook();
 		
 		Prologue prol = new Prologue();
 		prol.start();
@@ -69,7 +71,7 @@ public class PokemonProgram {
 //					System.out.println("[1]플레이 [2]랭킹보기 [3]나의 기록 확인 [4]로그아웃 >>");
 //					int menu = sc.nextInt();
 //					if (menu == 1) {
-//
+//					
 //					} else if (menu == 2) {
 //						ArrayList<PokemonDTO> list = mdao.rank(null);
 //						System.out.println("순위\t아이디\t점수");
