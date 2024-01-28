@@ -4,27 +4,42 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
+import MP3Player프로그램.Music;
 import Model.MemberDAO;
 import Model.MemberDTO;
+import Model.MusicCon;
 import Model.PokemonDAO;
 import Model.PokemonDTO;
+import Model.PokemonMusic;
 import Model.ScoreDAO;
 import Model.ScoreDTO;
 import Model.Prologue;
 import Model.PokemonBook;
 import Model.PokemonBookAns;
 import Model.TimeLImitQuiz;
+import javazoom.jl.player.MP3Player;
 
 public class PokemonProgram {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
+		
+		String defaultPath = "C:\\Users\\SMHRD\\Desktop\\music\\";
+		PokemonMusic m1 = new PokemonMusic(defaultPath +"Pokemon Fire Red and Leaf Green - Wild Pokemon Battle.mp3","Wild Pokemon Battle");
+		ArrayList<PokemonMusic> musicList = new ArrayList<>();
+		musicList.add(m1);
+		MP3Player bgm = new MP3Player();
 
 		MemberDAO mdao = new MemberDAO(); // mdao 초기화 - 명택
 		ScoreDAO sdao = new ScoreDAO(); // sdao 초기화 - 현우
 		
 		Prologue prol = new Prologue();
 		prol.start();
+		
+		int index = 0;
+		MusicCon con = new MusicCon();
+		con.musicPlay(index, musicList);
+		
 		
 		String skip = sc.next();
 		
