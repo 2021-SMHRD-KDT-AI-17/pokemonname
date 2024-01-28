@@ -156,5 +156,7 @@ public class PokemonDAO {
 	}
 
 	// 정답이 db 번호 와 똑같은지
+	
+	
 
 }
