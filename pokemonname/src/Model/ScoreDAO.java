@@ -108,11 +108,11 @@ public class ScoreDAO {
 		try {
 			getConn();
 
-//			String sql = "select id, score from (select id, MAX(score) as score "
-//					+ "from play group by id order by score desc) where rownum <= 10";
+			String sql = "select id, score from (select id, MAX(score) as score "
+					+ "from score group by id order by score desc) where rownum <= 10";
 
-			String sql = "select id, max(score) as score\r\n" + "from score\r\n" + "group by id\r\n"
-					+ "order by score desc";
+//			String sql = "select id, max(score) as score\r\n" + "from score\r\n" + "group by id\r\n"
+//					+ "order by score desc";
 
 			psmt = conn.prepareStatement(sql);
 

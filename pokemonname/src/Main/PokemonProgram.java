@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
-//import MP3Player프로그램.Music;
+//import MP3Player.Music;
 import Model.MemberDAO;
 import Model.MemberDTO;
-//import Model.MusicCon;
+import Model.MusicCon;
 import Model.PokemonDAO;
 import Model.PokemonDTO;
-//import Model.PokemonMusic;
+import Model.PokemonMusic;
 import Model.ScoreDAO;
 import Model.ScoreDTO;
 import Model.Prologue;
@@ -57,9 +57,6 @@ public class PokemonProgram {
 
 			if (choice == 1) {
 				
-				
-				// 중복 id 입력시 가입할 아이디 입력 단계부터 도와 주는 while 문
-				while(true) {
 				System.out.print("가입할 아이디 입력 : ");
 				String joinId = sc.next();
 
@@ -80,7 +77,7 @@ public class PokemonProgram {
 				dto.setPw(joinPw);
 				
 				int cnt = mdao.join(dto);
-				} // 중복id 관련 while 문
+				
 				
 			} else if (choice == 2) {
 				System.out.print("아이디 입력 : ");
