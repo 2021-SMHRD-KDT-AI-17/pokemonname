@@ -137,7 +137,7 @@ public class PokemonProgram {
 						
 						int quenum;
 						
-	
+
 						while(i<=7) {
 						
 						if(level == 1) { 
