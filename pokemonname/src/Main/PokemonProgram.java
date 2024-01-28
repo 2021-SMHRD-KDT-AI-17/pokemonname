@@ -16,12 +16,9 @@ import Model.ScoreDTO;
 import Model.Prologue;
 import Model.PokemonBook;
 import Model.PokemonBookAns;
-<<<<<<< HEAD
 import Model.PokemonBookHint;
-=======
 //import Model.TimeLImitQuiz;
 //import javazoom.jl.player.MP3Player;
->>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-AI-17/pokemonname.git
 
 public class PokemonProgram {
 
@@ -60,6 +57,9 @@ public class PokemonProgram {
 
 			if (choice == 1) {
 				
+				
+				// 중복 id 입력시 가입할 아이디 입력 단계부터 도와 주는 while 문
+				while(true) {
 				System.out.print("가입할 아이디 입력 : ");
 				String joinId = sc.next();
 
@@ -68,7 +68,7 @@ public class PokemonProgram {
 					System.out.println("사용가능한 id입니다.");
 				} else {
 					System.out.println("사용중인 id 입니다. 다시 입력해주세요");
-					continue; // 중복인 id를 받으면 while문 처음이 아닌 "가입할 아이디 입력으로 갔으면 좋겠는데 방법을 모르겠음
+					continue; 
 				}
 				
 
@@ -80,7 +80,8 @@ public class PokemonProgram {
 				dto.setPw(joinPw);
 				
 				int cnt = mdao.join(dto);
-
+				} // 중복id 관련 while 문
+				
 			} else if (choice == 2) {
 				System.out.print("아이디 입력 : ");
 				String id = sc.next();
@@ -96,6 +97,8 @@ public class PokemonProgram {
 				
 
 				//=======플레이
+				// 로그인 해서 메뉴 선택 들어오면 두번 로그인 안하도록 whlie 문 수정 
+				while(true) {
 				if(result != null) {
 					System.out.println("===메뉴 선택===");
 					System.out.println("[1]플레이 [2]랭킹보기 [3]나의 기록 확인 [4]로그아웃 >>");
@@ -117,6 +120,8 @@ public class PokemonProgram {
 						
 						int quenum;
 						
+						
+					while(true){	
 						if(level == 1) { 
 							quenum = rd.nextInt(22);
 						}
@@ -216,13 +221,15 @@ public class PokemonProgram {
 								i++;
 
 						 }
-
+			// =========== 점수 저장 
+						 
 						ScoreDTO sdto = new ScoreDTO();
 						sdto.setId(result.getId());
 						sdto.setScore(sum);
 						
 						int cnt = sdao.PlayScore(sdto);{
 							if(cnt>0) {
+								System.out.println(sum);
 								System.out.println("점수 저장 성공");
 							}
 						}
@@ -230,10 +237,12 @@ public class PokemonProgram {
 						if(i==10)
 							{
 								System.out.println(sum);
+								break;
 							}
-				
 					}
-					else if(menu==2) {
+					
+			// =======  랭킹보기			
+					}else if(menu==2) {
 						
 						ArrayList<ScoreDTO> list=sdao.rank();
 						
@@ -243,7 +252,11 @@ public class PokemonProgram {
 							//ScoreDTO dto1 = list.get(i);
 					    	System.out.println((i+1)+"\t" +list.get(i).getId() +"\t" + list.get(i).getScore());
 					    }
-					
+						
+						
+						
+						
+			// ==== 나의 기록보기		
 					}else if(menu==3) {
 						ArrayList<ScoreDTO> list = sdao.history(result.getId());
 						
@@ -258,7 +271,7 @@ public class PokemonProgram {
 
 				}
 				
-				
+				} // 메뉴 while 문 끝  
 				
 			}else break;
 
