@@ -9,6 +9,7 @@ import Model.PokemonDAO;
 import Model.PokemonDTO;
 import Model.ScoreDAO;
 import Model.ScoreDTO;
+import Model.Prologue;
 
 public class PokemonProgram {
 
@@ -17,9 +18,17 @@ public class PokemonProgram {
 
 		MemberDAO mdao = new MemberDAO(); // mdao 초기화 - 명택
 		ScoreDAO sdao = new ScoreDAO(); // sdao 초기화 - 현우
-
+		
+		Prologue prol = new Prologue();
+		prol.start();
+		
+		String skip = sc.next();
+		
 		while (true) {
-			System.out.print("포켓몬 너의 이름은");
+			
+			prol.stop();
+			System.out.println();
+			System.out.println("포켓몬 너의 이름은");
 			System.out.print("[1]회원가입 [2]로그인 [3]종료 >>");
 			int choice = sc.nextInt();
 
@@ -54,38 +63,35 @@ public class PokemonProgram {
 
 				MemberDTO result = mdao.login(dto);
 
-				
-				//=======플레이
-//				if(result != null) {
+				// =======플레이
+//				if (result != null) {
 //					System.out.println("===메뉴 선택===");
 //					System.out.println("[1]플레이 [2]랭킹보기 [3]나의 기록 확인 [4]로그아웃 >>");
 //					int menu = sc.nextInt();
-//					if(menu==1) {
-//						
-//						
-//					}else if(menu==2) {
-//						ArrayList<PokemonDTO> list=mdao.rank(null);
+//					if (menu == 1) {
+//
+//					} else if (menu == 2) {
+//						ArrayList<PokemonDTO> list = mdao.rank(null);
 //						System.out.println("순위\t아이디\t점수");
-//						for(int i = 0;i<list.size();i++) {
-//							
+//						for (int i = 0; i < list.size(); i++) {
+//
 //							PokemonDTO dto1 = list.get(i);
-//					    	System.out.println((i+1)+"\t" +dto1.getId() +"\t" +  dto1.getScore());
-//					    }
-//					
-//					}else if(menu==3) {
+//							System.out.println((i + 1) + "\t" + dto1.getId() + "\t" + dto1.getScore());
+//						}
+//
+//					} else if (menu == 3) {
 //						ArrayList<PokemonDTO> list = mdao.history(result.getID());
-//						for(int i=0;i<list.size();i++) {
+//						for (int i = 0; i < list.size(); i++) {
 //							System.out.println(list.get(i).getscore());
 //						}
-//						
-//					}else break;
-//						
-//					
+//
+//					} else
+//						break;
+//
 //				}
-				
-				
-				
-			}else break;
+
+			} else
+				break;
 
 		}
 

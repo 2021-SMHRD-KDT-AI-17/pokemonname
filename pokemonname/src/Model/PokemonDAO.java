@@ -5,10 +5,11 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Random;
 
 public class PokemonDAO {
 
-	
+	PokemonBook pokemon = new PokemonBook();
 	private Connection conn = null;
 	private PreparedStatement psmt = null;
 	private ResultSet rs = null;
@@ -73,22 +74,24 @@ public class PokemonDAO {
 		
 		
 		
-		// 프롤로그
-		public void prolog() {
-			
-			
-			
-		}
-		
-		
-		
 		// 포켓몬 그림 출력
-		public void ENprint() {
+		public void ENprint(int num) {
+			
+			pokemon.book();
+			// book에 있는 배열을 랜덤하게 꺼내와
+			// 
+			
+			
+			
+			
+			
 			
 		}
 		
 		// Easy/Normal 힌트 시 초성 출력
 		public void ENHint() {
+			//pokemon.book();의 배열 값
+			
 			
 		}
 		
@@ -96,12 +99,19 @@ public class PokemonDAO {
 		// Hard 그림 절반만 출력
 		public void Hprint() {
 			
+			
+			
 		}
 		
 		// Hard 힌트 시 그림 전체 출력
 		public void HHint() {
 			
+			
+			
 		}
+		
+		// 정답이 db 번호 와 똑같은지
+		
 		
 	
 }
