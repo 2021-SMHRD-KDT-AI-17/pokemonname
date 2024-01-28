@@ -4,31 +4,31 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
-import MP3Player프로그램.Music;
+//import MP3Player프로그램.Music;
 import Model.MemberDAO;
 import Model.MemberDTO;
-import Model.MusicCon;
+//import Model.MusicCon;
 import Model.PokemonDAO;
 import Model.PokemonDTO;
-import Model.PokemonMusic;
+//import Model.PokemonMusic;
 import Model.ScoreDAO;
 import Model.ScoreDTO;
 import Model.Prologue;
 import Model.PokemonBook;
 import Model.PokemonBookAns;
-import Model.TimeLImitQuiz;
-import javazoom.jl.player.MP3Player;
+//import Model.TimeLImitQuiz;
+//import javazoom.jl.player.MP3Player;
 
 public class PokemonProgram {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		
-		String defaultPath = "C:\\Users\\SMHRD\\Desktop\\music\\";
-		PokemonMusic m1 = new PokemonMusic(defaultPath +"Pokemon Fire Red and Leaf Green - Wild Pokemon Battle.mp3","Wild Pokemon Battle");
-		ArrayList<PokemonMusic> musicList = new ArrayList<>();
-		musicList.add(m1);
-		MP3Player bgm = new MP3Player();
+//		String defaultPath = "C:\\Users\\SMHRD\\Desktop\\music\\";
+//		PokemonMusic m1 = new PokemonMusic(defaultPath +"Pokemon Fire Red and Leaf Green - Wild Pokemon Battle.mp3","Wild Pokemon Battle");
+//		ArrayList<PokemonMusic> musicList = new ArrayList<>();
+//		musicList.add(m1);
+//		MP3Player bgm = new MP3Player();
 
 		MemberDAO mdao = new MemberDAO(); // mdao 초기화 - 명택
 		ScoreDAO sdao = new ScoreDAO(); // sdao 초기화 - 현우
@@ -37,8 +37,8 @@ public class PokemonProgram {
 		prol.start();
 		
 		int index = 0;
-		MusicCon con = new MusicCon();
-		con.musicPlay(index, musicList);
+//		MusicCon con = new MusicCon();
+//		con.musicPlay(index, musicList);
 		
 		
 		String skip = sc.next();
@@ -131,7 +131,15 @@ public class PokemonProgram {
 							System.out.println(sum);
 						}
 
+						ScoreDTO sdto = new ScoreDTO();
+						sdto.setId(result.getId());
+						sdto.setScore(sum);
 						
+						int cnt = sdao.PlayScore(sdto);{
+							if(cnt>0) {
+								System.out.println("점수 저장 성공");
+							}
+						}
 						
 					}
 					else if(menu==2) {
@@ -141,14 +149,16 @@ public class PokemonProgram {
 						System.out.println("순위\t아이디\t점수");
 						for(int i = 0;i<list.size();i++) {
 							
-							ScoreDTO dto1 = list.get(i);
-					    	System.out.println((i+1)+"\t" +dto1.getId() +"\t" +  dto1.getScore());
+							//ScoreDTO dto1 = list.get(i);
+					    	System.out.println((i+1)+"\t" +list.get(i).getId() +"\t" + list.get(i).getScore());
 					    }
 					
 					}else if(menu==3) {
 						ArrayList<ScoreDTO> list = sdao.history(result.getId());
+						
+						System.out.println("점수\t날짜");
 						for(int i=0;i<list.size();i++) {
-							System.out.println(list.get(i).getScore());
+							System.out.println(list.get(i).getScore()+"\t"+list.get(i).getIndate());
 						}
 						
 					}else break;
