@@ -4,27 +4,46 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
+//import MP3Player프로그램.Music;
 import Model.MemberDAO;
 import Model.MemberDTO;
+//import Model.MusicCon;
 import Model.PokemonDAO;
 import Model.PokemonDTO;
+//import Model.PokemonMusic;
 import Model.ScoreDAO;
 import Model.ScoreDTO;
 import Model.Prologue;
 import Model.PokemonBook;
 import Model.PokemonBookAns;
+<<<<<<< HEAD
 import Model.PokemonBookHint;
+=======
+//import Model.TimeLImitQuiz;
+//import javazoom.jl.player.MP3Player;
+>>>>>>> branch 'master' of https://github.com/2021-SMHRD-KDT-AI-17/pokemonname.git
 
 public class PokemonProgram {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
+		
+//		String defaultPath = "C:\\Users\\SMHRD\\Desktop\\music\\";
+//		PokemonMusic m1 = new PokemonMusic(defaultPath +"Pokemon Fire Red and Leaf Green - Wild Pokemon Battle.mp3","Wild Pokemon Battle");
+//		ArrayList<PokemonMusic> musicList = new ArrayList<>();
+//		musicList.add(m1);
+//		MP3Player bgm = new MP3Player();
 
 		MemberDAO mdao = new MemberDAO(); // mdao 초기화 - 명택
 		ScoreDAO sdao = new ScoreDAO(); // sdao 초기화 - 현우
 		
 		Prologue prol = new Prologue();
 		prol.start();
+		
+		int index = 0;
+//		MusicCon con = new MusicCon();
+//		con.musicPlay(index, musicList);
+		
 		
 		String skip = sc.next();
 		
@@ -40,14 +59,18 @@ public class PokemonProgram {
 			int choice = sc.nextInt();
 
 			if (choice == 1) {
+				
 				System.out.print("가입할 아이디 입력 : ");
 				String joinId = sc.next();
 
 				int result = mdao.idCheck(joinId);
 				if (result == 0) {
 					System.out.println("사용가능한 id입니다.");
-				} else
-					continue;
+				} else {
+					System.out.println("사용중인 id 입니다. 다시 입력해주세요");
+					continue; // 중복인 id를 받으면 while문 처음이 아닌 "가입할 아이디 입력으로 갔으면 좋겠는데 방법을 모르겠음
+				}
+				
 
 				System.out.print("가입할 비밀번호 입력 : ");
 				String joinPw = sc.next();
@@ -71,6 +94,7 @@ public class PokemonProgram {
 				MemberDTO result = mdao.login(dto);
 
 				
+
 				//=======플레이
 				if(result != null) {
 					System.out.println("===메뉴 선택===");
@@ -193,7 +217,15 @@ public class PokemonProgram {
 
 						 }
 
+						ScoreDTO sdto = new ScoreDTO();
+						sdto.setId(result.getId());
+						sdto.setScore(sum);
 						
+						int cnt = sdao.PlayScore(sdto);{
+							if(cnt>0) {
+								System.out.println("점수 저장 성공");
+							}
+						}
 						
 						if(i==10)
 							{
@@ -202,23 +234,28 @@ public class PokemonProgram {
 				
 					}
 					else if(menu==2) {
-//						ArrayList<PokemonDTO> list=mdao.rank(null);
-//						System.out.println("순위\t아이디\t점수");
-//						for(int i = 0;i<list.size();i++) {
-//							
-//							PokemonDTO dto1 = list.get(i);
-//					    	System.out.println((i+1)+"\t" +dto1.getId() +"\t" +  dto1.getScore());
-//					    }
-//					
-//					}else if(menu==3) {
-//						ArrayList<PokemonDTO> list = mdao.history(result.getID());
-//						for(int i=0;i<list.size();i++) {
-//							System.out.println(list.get(i).getscore());
-//						}
-//						
+						
+						ArrayList<ScoreDTO> list=sdao.rank();
+						
+						System.out.println("순위\t아이디\t점수");
+						for(int i = 0;i<list.size();i++) {
+							
+							//ScoreDTO dto1 = list.get(i);
+					    	System.out.println((i+1)+"\t" +list.get(i).getId() +"\t" + list.get(i).getScore());
+					    }
+					
+					}else if(menu==3) {
+						ArrayList<ScoreDTO> list = sdao.history(result.getId());
+						
+						System.out.println("점수\t날짜");
+						for(int i=0;i<list.size();i++) {
+							System.out.println(list.get(i).getScore()+"\t"+list.get(i).getIndate());
+						}
+						
 					}else break;
 //						
 //					
+
 				}
 				
 				
