@@ -147,7 +147,7 @@ public class ScoreDAO {
 		try {
 			getConn();
 
-			String sql = "select * from score where id = ? and rownum <= 5 order by indate desc";
+			String sql = "select * from (select * from score where id = ? order by indate desc) where rownum<=5";
 				// 기록을 일단 최근 5개만 보게 설정할까요??
 			
 			
