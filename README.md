@@ -99,13 +99,17 @@
 
 
 
+
+
+
 ## 👨‍👩‍👦‍👦 팀원 역할
 <table>
   <tr>
-    <td align="center"><img src="https://item.kakaocdn.net/do/fd49574de6581aa2a91d82ff6adb6c0115b3f4e3c2033bfd702a321ec6eda72c" width="100" height="100"/></td>
-    <td align="center"><img src="https://mb.ntdtv.kr/assets/uploads/2019/01/Screen-Shot-2019-01-08-at-4.31.55-PM-e1546932545978.png" width="100" height="100"/></td>
-    <td align="center"><img src="https://mblogthumb-phinf.pstatic.net/20160127_177/krazymouse_1453865104404DjQIi_PNG/%C4%AB%C4%AB%BF%C0%C7%C1%B7%BB%C1%EE_%B6%F3%C0%CC%BE%F0.png?type=w2" width="100" height="100"/></td>
-    <td align="center"><img src="https://i.pinimg.com/236x/ed/bb/53/edbb53d4f6dd710431c1140551404af9.jpg" width="100" height="100"/></td>
+    <td align="center"><img src="https://github.com/2021-SMHRD-KDT-AI-17/pokemonname/assets/157375939/f226e7cb-f950-46fa-88c3-c8c036aa9b14"
+ width="100" height="100"/></td>
+    <td align="center"><img src="https://github.com/2021-SMHRD-KDT-AI-17/pokemonname/assets/157375939/a7e56c1f-cd28-4e3b-9f17-ec24df2ee5b7" width="100" height="100"/></td>
+    <td align="center"><img src="https://github.com/2021-SMHRD-KDT-AI-17/pokemonname/assets/157375939/9ead128a-f5f0-4d76-8948-e86cbb932c3d" width="100" height="100"/></td>
+    <td align="center"><img src="https://github.com/2021-SMHRD-KDT-AI-17/pokemonname/assets/157375939/f7d61ed2-bc74-4dc1-bbe3-b7b3cb9a961d" width="100" height="100"/></td>
   </tr>
   <tr>
     <td align="center"><strong>이봄</strong></td>
