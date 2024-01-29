@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
-import MP3Player프로그램.Music;
+import MP3Player.Music;
 import Model.MemberDAO;
 import Model.MemberDTO;
 import Model.MusicCon;
@@ -111,8 +111,11 @@ public class PokemonProgram {
 				dto.setPw(pw);
 
 				MemberDTO result = mdao.login(dto);
-
-				
+			
+				if(result==null) {
+					System.out.println("로그인 실패");
+					continue;
+				} 
 
 				//=======플레이
 				while(true) {
@@ -373,7 +376,6 @@ public class PokemonProgram {
 			                        }
 								}
 								else
-
 			                     {
 									if(bgm.isPlaying())
 									{

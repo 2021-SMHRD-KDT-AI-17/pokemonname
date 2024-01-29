@@ -1,4 +1,4 @@
-package MP3Player프로그램;
+package MP3Player;
 
 import java.util.ArrayList;
 
