@@ -111,8 +111,11 @@ public class PokemonProgram {
 				dto.setPw(pw);
 
 				MemberDTO result = mdao.login(dto);
-
-				
+			
+				if(result==null) {
+					System.out.println("로그인 실패");
+					continue;
+				} 
 
 				//=======플레이
 				while(true) {
