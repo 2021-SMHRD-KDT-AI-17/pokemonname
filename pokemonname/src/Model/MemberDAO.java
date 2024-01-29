@@ -27,11 +27,7 @@ public class MemberDAO {
 
 			conn = DriverManager.getConnection(url, user, password);
 
-			if (conn != null) {
-				System.out.println("DB연결 성공!");
-			} else {
-				System.out.println("DB연결 실패");
-			}
+			
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -55,7 +51,7 @@ public class MemberDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		System.out.println("DB연결 종료");
+		
 
 	}
 	// ===================DB 연결 종료
@@ -92,7 +88,7 @@ public class MemberDAO {
 				result.setPw(getPw);
 
 
-				System.out.println(getId + "/" + getPw);
+				System.out.println("환영합니다!");
 
 			}
 
