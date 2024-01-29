@@ -1,4 +1,4 @@
-# 📎 Java기반 포켓몬 너의 이름은(팀명: 봄팀)
+# 📎 Java기반 포켓몬 너의 이름은(팀명: 그냥집밥)
 ![image](https://github.com/2021-SMHRD-KDT-AI-17/pokemonname/assets/157375939/b69d0e43-3bc1-40c1-ac96-dddfef5d5dd8)
 
 
@@ -61,14 +61,42 @@
 
 
 ## 🖥 화면 구성
+### Prologue
+![프롤로그](https://github.com/2021-SMHRD-KDT-AI-17/pokemonname/assets/157375939/cd095d40-5895-4ebb-aae9-22ec41507766)
+
+<br>
 
 ### 로그인/회원가입
-![image](https://user-images.githubusercontent.com/25995055/178401098-95f15a0e-a2de-415e-83d5-883bb4cb0656.png)
+![로그인 화면](https://github.com/2021-SMHRD-KDT-AI-17/pokemonname/assets/157375939/34ba1ef6-fe12-4e5f-b31f-e95721965e1b)
+
+
+
+* 회원가입
+![회원가입](https://github.com/2021-SMHRD-KDT-AI-17/pokemonname/assets/157375939/e5539404-28cd-4b7d-abd4-5676e53c6df8)
+
+
+
+* 로그인
+![메뉴선택](https://github.com/2021-SMHRD-KDT-AI-17/pokemonname/assets/157375939/768674e2-f8c4-4343-a974-2428dcb4f0ed)
+
 <br>
 
 ### 포켓몬 너의이름은 플레이
-![image](https://user-images.githubusercontent.com/25995055/178401098-95f15a0e-a2de-415e-83d5-883bb4cb0656.png)
+* 난이도 설정
+![난이도 설정](https://github.com/2021-SMHRD-KDT-AI-17/pokemonname/assets/157375939/f9a53f53-d932-415b-a75f-3274eb449e13)
+
+
+
+* 문제
+![문제](https://github.com/2021-SMHRD-KDT-AI-17/pokemonname/assets/157375939/d4a7f69b-0b7b-43c8-912d-203766433171)
+![문제 정답입력](https://github.com/2021-SMHRD-KDT-AI-17/pokemonname/assets/157375939/245c1d34-45af-4ec6-9a3a-857aeff7fafc)
+
 <br>
+
+### 랭킹확인
+* 최고득점 3명
+![랭킹 점수](https://github.com/2021-SMHRD-KDT-AI-17/pokemonname/assets/157375939/1e0813af-4f16-4cc5-be74-4f6e6f47ba78)
+
 
 
 ## 👨‍👩‍👦‍👦 팀원 역할
