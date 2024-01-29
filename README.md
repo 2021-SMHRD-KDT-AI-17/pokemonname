@@ -132,4 +132,13 @@
 </table>
 
 ## 🤾‍♂️ 트러블슈팅
+* 이클립스 콘솔에서 보이는 화면이 exe 에서 보이는 화면에서는 출력이 되지 않았음
+    > * exe 파일에서 출력이 가능한 특수문자로 교체해서 해결<tr>
+
+* DB상에 본인기록 확인 하기에서 최근 5개 출력 중 총 최근기록이 아니라 랜덤한 기록중<tr>
+  내림차순으로 출력되었음
+    > * sql 문을 select * from (select * from score where id = ? order by indate desc) where rownum<=5 으로 수정해서 해결
+
+
+
 
