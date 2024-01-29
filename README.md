@@ -4,7 +4,7 @@
 
 ## 👀 서비스 소개
 * 서비스명:  Java기반 포켓몬 이름 맞추기 게임
-* 서비스설명: 
+* 서비스설명: 랜덤한 포켓몬 이미지에 대한 정답을 입력 하여 점수를 얻는 게임
 <br>
 
 ## 📅 프로젝트 기간
@@ -56,7 +56,7 @@
 <br>
 
 ## ⚙ 서비스 흐름도
-![흐름도 초안](https://github.com/2021-SMHRD-KDT-AI-17/pokemonname/assets/157375939/9883cb2f-64fb-40ef-b352-4ba9bbc1737a)
+![흐름도 3](https://github.com/2021-SMHRD-KDT-AI-17/pokemonname/assets/157375939/60c93363-fb41-4ddd-98e4-9fc230ad5b4f)
 
 
 
@@ -92,9 +92,9 @@
     <td align="center"><b>Backend</b></td>
   </tr>
   <tr>
-    <td align="center"><a href="https://github.com/자신의username작성해주세요" target='_blank'>github</a></td>
-    <td align="center"><a href="https://github.com/자신의username작성해주세요" target='_blank'>github</a></td>
-    <td align="center"><a href="https://github.com/자신의username작성해주세요" target='_blank'>github</a></td>
+    <td align="center"><a href="https://github.com/bom26" target='_blank'>github</a></td>
+    <td align="center"><a href="https://github.com/heeheeee1" target='_blank'>github</a></td>
+    <td align="center"><a href="https://github.com/Valis49" target='_blank'>github</a></td>
     <td align="center"><a href="https://github.com/lim-myoungtaek" target='_blank'>github</a></td>
   </tr>
 </table>
