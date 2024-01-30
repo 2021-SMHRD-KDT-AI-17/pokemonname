@@ -1,5 +1,5 @@
-# 📎 Java기반 포켓몬 너의 이름은(팀명: 그냥집밥)
-![image](https://github.com/2021-SMHRD-KDT-AI-17/pokemonname/assets/157375939/b69d0e43-3bc1-40c1-ac96-dddfef5d5dd8)
+# 📎 Java기반 포켓몬, 너의 이름은(팀명: 그냥집밥)
+![메인](https://github.com/2021-SMHRD-KDT-AI-17/pokemonname/assets/157375939/7a0d972c-8d88-4433-ae42-3e930c8fd51d)
 
 
 ## 👀 서비스 소개
